@@ -27,7 +27,23 @@ class Nonogram():
     def print_nonogram(self):
         output = [''.join([square_to_string(x) for x in row]) for row in self.nonogram]
         output_string = '\n'.join(output)
+
         print(output_string)
+
+    # Checks if the full nonogram is correct
+    def check_all_lines(self):
+        transposed = [list(x) for x in zip(*self.nonogram)]
+        checked_rows = [check_line(self.row_numbers[i], self.nonogram[i])
+                        for i in range(len(self.nonogram))]
+        checked_cols = [check_line(self.col_numbers[i], transposed[i])
+                        for i in range(len(transposed))]
+
+        rows_correct = all(checked_rows)
+        cols_correct = all(checked_cols)
+
+        return True == (rows_correct == cols_correct)
+
+
 
 # Checks if a line (row/column) has the correct number of filled squares
 def check_line(numbers, line):
