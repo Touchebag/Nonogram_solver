@@ -2,6 +2,9 @@ from enum import Enum
 import itertools
 
 Square = Enum('Square', 'unknown empty filled')
+Unknown = Square.unknown
+Empty = Square.empty
+Filled = Square.filled
 
 # TODO remove
 ex_row=[Square.unknown,Square.unknown,Square.filled,Square.unknown,Square.filled,Square.filled,Square.filled,Square.unknown,Square.filled,Square.unknown,Square.unknown,Square.unknown,Square.unknown]
